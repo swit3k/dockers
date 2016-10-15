@@ -12,7 +12,7 @@ until curl localhost:9990 --silent 1>/dev/null; do
 done
 
 # Call $ON_STARTUP_SCRIPT if exists
-ON_STARTUP_SCRIPT=$SCRIPTS/on_startup.sh
+ON_STARTUP_SCRIPT=$SCRIPTS_DIR/on_startup.sh
 
 if [ -e $ON_STARTUP_SCRIPT ]
 then

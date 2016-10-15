@@ -11,7 +11,7 @@ RUN chmod 775 ${DEPLOYMENT_DIR}
 RUN chown jboss:jboss ${DEPLOYMENT_DIR}
 
 RUN mkdir ./scripts
-ENV SCRIPTS ./scripts
+ENV SCRIPTS_DIR ./scripts
 
 COPY entrypoint.sh .
 RUN chmod +x ./entrypoint.sh
