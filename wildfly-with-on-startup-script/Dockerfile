@@ -10,6 +10,9 @@ USER root
 RUN chmod 775 ${DEPLOYMENT_DIR}
 RUN chown jboss:jboss ${DEPLOYMENT_DIR}
 
+RUN mkdir ./scripts
+ENV SCRIPTS ./scripts
+
 COPY entrypoint.sh .
 RUN chmod +x ./entrypoint.sh
 ENTRYPOINT ./entrypoint.sh

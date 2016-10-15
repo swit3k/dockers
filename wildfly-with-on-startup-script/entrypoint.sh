@@ -12,7 +12,15 @@ until curl localhost:9990 --silent 1>/dev/null; do
 done
 
 # Call $ON_STARTUP_SCRIPT if exists
-if [ -x $ON_STARTUP_SCRIPT ]; then ./$ON_STARTUP_SCRIPT; fi
+ON_STARTUP_SCRIPT=$SCRIPTS/on_startup.sh
+
+if [ -e $ON_STARTUP_SCRIPT ]
+then
+    chmod +x $ON_STARTUP_SCRIPT
+    ./$ON_STARTUP_SCRIPT
+else
+    echo "No startup script."
+fi
 
 # Bring Wildfly back to foreground
 fg
